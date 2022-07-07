@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+{%block content%}
+<h1>Add Task</h1>
+<br><br>
+{%if submitted %}
+Task Added Successfully.
+{% else %}
+<form action="" method=POST class="add_task">
+    {% csrf_token %}
+
+    {{form.as_p}}
+
+    <input type="submit" value="Submit" class="btn btn-secondary">
+</form>
+{%endif%}
+
+{%endblock%}

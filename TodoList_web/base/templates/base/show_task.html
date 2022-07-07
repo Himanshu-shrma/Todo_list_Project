@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+{%block content%}
+
+<div class="card">
+    <div class="card-header">
+        Edit Task
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{tdetail}}</h5>
+        <p class="card-text">
+        <ul>
+
+            <li> <b> Task Name- </b> {{tdetail.title}}</li>
+            <li> <b> Task description- </b> {{tdetail.description}}</li>
+            <li> <b> Task Completed- </b> {{tdetail.complete}}</li>
+            <li> <b> Task Created on- </b> {{tdetail.create}}</li>
+        </ul>
+        </p>
+
+    </div>
+</div>
+{%endblock%}

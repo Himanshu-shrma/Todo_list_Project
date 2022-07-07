@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #152737;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{%url 'home' %}">Task Manager</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {%if user.is_authenticated%}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'add-task' %}">Create Task</a>
+                </li>
+                {%endif%}
+
+            </ul>
+            {%if user.is_authenticated %}
+
+
+                {%if user.is_superuser %}
+                <div style="color: white; padding: 0.5rem 0.5rem;"> Admin </div>
+                {%else%}
+                <div style="color: white; padding: 0.5rem 0.5rem;"> {{user.first_name}} </div>
+                {%endif%}
+
+
+
+            <a class="nav-link active" aria-current="page" href="{% url 'logout-user' %}"
+                style="color: white; padding: 0.5rem 0.5rem;">Logout</a>
+            {%else%}
+
+
+            <a class="nav-link active" aria-current="page" href="{% url 'login-user' %}"
+                style="color: white; padding: 0.5rem 0.5rem; ">Login</a>
+
+
+            <a class="nav-link active" aria-current="page" href="{% url 'register-user' %}"
+                style="color: white; padding: 0.5rem 0.5rem;">Signup</a>
+
+
+            {%endif%}
+
+        </div>
+    </div>
+</nav>

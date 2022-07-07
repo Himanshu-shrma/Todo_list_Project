@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+{%block content%}
+<center>
+    <h2>Tasks</h2><br><br>
+    <table class="table table-hover">
+
+        {%if tlist%}
+        {%for task in tlist %}
+        <tr>
+
+            <td align="left" style="max-width: 0px;">
+                {%if task.complete == False %}
+                <form method='post' action="{%url 'update-task' task.id %}">
+                    {%csrf_token%}
+                    <input type='checkbox' name='checkbox' onChange='submit();'>
+                </form>
+
+                {%else%}
+                <form method='post' action="{%url 'update-task' task.id %}">
+                    {%csrf_token%}
+                    <input type='checkbox' name='checkbox' onChange='submit();' checked>
+                </form>
+
+                {%endif%}
+
+            </td>
+
+            <td>
+                {%if task.complete == False %}
+                <a href="{% url 'show-task'  task.id %}" style="text-decoration: none;">{{task}}</a>
+                {%else%}
+                <del>
+                    <a href="{% url 'show-task'  task.id %}" style="text-decoration: none;">{{task}}</a>
+
+                </del>
+                {%endif%}
+            </td>
+            <td align="right">
+                <a href="{%url 'edit-task' task.id%}">
+                    <i class="fa fa-pencil" style="font-size:20px"></i></a>
+                <a href="{%url 'delete-task' task.id%}">
+                    <i class="fa fa-trash" style="font-size:20px;margin-left: 18px; "></i></a>
+            </td>
+        </tr>
+        {%endfor%}
+        {%else%}
+        <center>
+            <div>Hurray! No task</div>
+        </center>
+        {%endif%}
+    </table>
+</center>
+
+{%endblock%}
