@@ -17,11 +17,11 @@
             {%if user.is_authenticated %}
 
 
-                {%if user.is_superuser %}
-                <div style="color: white; padding: 0.5rem 0.5rem;"> Admin </div>
-                {%else%}
-                <div style="color: white; padding: 0.5rem 0.5rem;"> {{user.first_name}} </div>
-                {%endif%}
+            {%if user.is_superuser %}
+            <div style="color: white; padding: 0.5rem 0.5rem;"> Admin </div>
+            {%else%}
+            <div style="color: white; padding: 0.5rem 0.5rem;"> {{user.first_name}} </div>
+            {%endif%}
 
 
 
