@@ -2,8 +2,8 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from .forms import RegisterUserForm
+
 #for regirstration of user
-from django.contrib.auth.forms import UserCreationForm
 
 def register_user(request):
     if request.method=="POST":
