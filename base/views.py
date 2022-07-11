@@ -1,4 +1,3 @@
-from email import message
 from django.shortcuts import redirect, render
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
