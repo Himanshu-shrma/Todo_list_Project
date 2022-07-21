@@ -2,6 +2,6 @@
 
 Web Link -> https://todolistboi.herokuapp.com/
 
-Login ID -> himanshusharma
+login ID -> himanshusharma
 
 password -> Hemant@123
